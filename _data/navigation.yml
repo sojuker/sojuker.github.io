@@ -1,0 +1,11 @@
+main:
+  - title: "Home"
+    url: /
+  - title: "About"
+    url: /about/
+  - title: "Archive"
+    url: /year-archive/
+  - title: "Photos"
+    url: /photos/
+  - title: "Talks"
+    url: /talks/
