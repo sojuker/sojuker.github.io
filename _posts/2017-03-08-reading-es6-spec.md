@@ -1,3 +1,53 @@
+# Index
+
+1. Scope
+2. Conformance
+3. Normative references
+4. Overview
+    1. Terms and definitions
+5. Notational Conventions
+
+-----
+
+6. ECMAScript Data Types and Values
+7. Abstract Operations
+    1. Type Conversion
+    2. Testing and Comparison Operations
+    3. Operations on Objects
+    4. Operations on Iterator Objects
+8. Executable Code and Execution Contexts
+    1. Lexical Environments
+    2. Code Realms
+    3. Execution Contexts
+    4. Jobs and Job Queues
+    5. ECMAScript Initialization()
+9. Ordinary and Exotic Objects Behaviours
+
+-----
+
+10. ECMAScript Language: Source Code
+11. ECMAScript Language: Lexical Grammar
+12. ECMAScript Language: Expressions
+13. ECMAScript Language: Statements and Declarations
+14. ECMAScript Language: Functions and Classes
+15. ECMAScript Language: Scripts and Modules
+16. Error Handling and Language Extensions
+
+-----
+
+17. ECMAScript Standard Built-in Objects
+18. The Global Object
+19. Fundamental Objects
+20. Numbers and Dates
+21. Text Processing
+22. Indexed Collections
+23. Keyed Collection
+24. Structured Data
+25. Control Abstraction Objects
+26. Reflection
+
+----
+
 # 4 Overview
 
 ECMAScript is an object-oriented programming language for performing computations and manipulating computational objects within a host environment.
@@ -581,17 +631,18 @@ Function Environment Records have the additional state fields listed below.
 
 #### 8.1.1.4 Global Environment Records
 
-A global Environment Record is used to represent the outer most scope
+A `global Environment Record` is used to represent the outer most scope
 that is shared by all of the ECMAScript Script elements that are processed in a common Realm.
 A global Environment Record provides the bindings for built-in globals, properties of the global object,
 and for all top-level declarations that occur within a Script.
 
 A global Environment Record is logically a single record
 but it is specified as a composite encapsulating an object Environment Record and a declarative Environment Record.
+
 The object Environment Record has as its base object the global object of the associated Realm.
-This global object is the value returned by the global Environment Record’s GetThisBinding concrete method.
-The object Environment Record component of a global Environment Record contains the bindings for all built-in globals
-and all bindings introduced by a FunctionDeclaration, GeneratorDeclaration, or VariableStatement contained in global code.
+This global object is the value returned by the global Environment Record’s GetThisBinding method.
+The object Environment Record component of a global Environment Record contains the bindings for all built-in globals and all bindings introduced by a FunctionDeclaration, GeneratorDeclaration, or VariableStatement contained in global code.
+
 The bindings for all other ECMAScript declarations in global code are contained in the declarative Environment Record component of the global Environment Record.
 
 Properties may be created directly on a global object.
