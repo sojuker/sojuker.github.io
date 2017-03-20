@@ -641,14 +641,15 @@ but it is specified as a composite encapsulating an object Environment Record an
 
 The object Environment Record has as its base object the global object of the associated Realm.
 This global object is the value returned by the global Environment Record’s GetThisBinding method.
-The object Environment Record component of a global Environment Record contains the bindings for all built-in globals and all bindings introduced by a FunctionDeclaration, GeneratorDeclaration, or VariableStatement contained in global code.
+The object Environment Record component of a global Environment Record contains the bindings for all built-in globals
+and all bindings introduced by a FunctionDeclaration, GeneratorDeclaration, or VariableStatement contained in global code.
 
 The bindings for all other ECMAScript declarations in global code are contained in the declarative Environment Record component of the global Environment Record.
 
 Properties may be created directly on a global object.
 Hence, the object Environment Record component of a global Environment Record may contain both bindings created explicitly by FunctionDeclaration, GeneratorDeclaration, or VariableDeclaration declarations and binding created implicitly as properties of the global object.
-In order to identify which bindings were explicitly created using declarations,
-a global Environment Record maintains a list of the names bound using its CreateGlobalVarBindings and CreateGlobalFunctionBindings concrete methods.
+In order to identify which bindings were **explicitly created using declarations**,
+a global Environment Record maintains a list of the names bound using its CreateGlobalVarBindings and CreateGlobalFunctionBindings methods.
 
 Additional Fields of Global Environment Records
 
@@ -659,28 +660,23 @@ Additional Fields of Global Environment Records
 Additional Methods of Global Environment Records
 
 - GetThisBinding()
-- HasVarDeclaration(N), 包含 unctionDeclaration, GeneratorDeclaration, or VariableDeclaration declarations
-- HasLexicalDeclaration(N)
-- HasRestrictedGlobalProperty(N)，不能被 lexicalDeclaration 屏蔽的 global Property
-    A global lexical binding may not be created that has the same name as a non-configurable property of the global object.
-    The global property undefined is an example of such a property.
+- HasVarDeclaration(N), 包含 unctionDeclaration, GeneratorDeclaration, or VariableDeclaration
+- HasLexicalDeclaration(N), created using a lexical declaration such as a LexicalDeclaration or a ClassDeclaration
+- HasRestrictedGlobalProperty(N)，A global lexical binding may not be created that has the same name as a non-configurable property of the global object.
 - CanDeclareGlobalVar(N)
 - CanDeclareGlobalFunction(N)
 - CreateGlobalVarBinding(N, D)
 - CreateGlobalFunctionBinding(N, V, D)
 
-DeclarativeRecord 是优先于 ObjectRecord 的，会产生屏蔽效应。
+DeclarativeRecord 是优先于 ObjectRecord 的，同名的 binding 在查询时会产生屏蔽效应。
 
 #### 8.1.1.5 Module Environment Records
 
 A module Environment Record is a declarative Environment Record that is used to represent the outer scope of an ECMAScript Module.
-In additional to normal mutable and immutable bindings,
-module Environment Records also provide immutable import bindings
+In additional to normal mutable and immutable bindings, module Environment Records also provide immutable import bindings
 which are bindings that provide indirect access to a target binding that exists in another Environment Record.
 
-Module Environment Records support all of the declarative Environment Record methods listed in Table 15 and share the same specifications for all of those methods except for GetBindingValue, DeleteBinding, HasThisBinding and GetThisBinding. In addition, module Environment Records support the methods:
-
-Additional Methods of Module Environment Records
+In addition, module Environment Records support the methods:
 
 - CreateImportBinding(N, M, N2)
 - GetThisBinding()
@@ -689,22 +685,22 @@ Additional Methods of Module Environment Records
 
 The following abstract operations are used in this specification to operate upon lexical environments:
 
-#### 8.1.2.1 GetIdentifierReference (lex, name, strict)
+#### 8.1.2.1 GetIdentifierReference(lex, name, strict)
 
 The abstract operation GetIdentifierReference is called with a Lexical Environment lex, a String name, and a Boolean flag strict.
 
-1. If lex is the value null, then
+1. If lex is the value `null`, then
     1. Return a value of type Reference whose base value is undefined, whose referenced name is name, and whose strict reference flag is strict.
 2. Let envRec be lex’s EnvironmentRecord.
 3. Let exists be envRec.HasBinding(name).
 4. ReturnIfAbrupt(exists).
-5. If exists is true, then
+5. If exists is `true`, then
     1. Return a value of type Reference whose base value is envRec, whose referenced name is name, and whose strict reference flag is strict.
 6. Else
-    1. Let outer be the value of lex’s outer environment reference.
+    1. Let `outer` be the value of lex’s outer environment reference.
     2. Return GetIdentifierReference(outer, name, strict).
 
-#### 8.1.2.2 NewDeclarativeEnvironment (E)
+#### 8.1.2.2 NewDeclarativeEnvironment(E)
 
 When the abstract operation NewDeclarativeEnvironment is called with a Lexical Environment as argument E the following steps are performed:
 
@@ -714,27 +710,23 @@ When the abstract operation NewDeclarativeEnvironment is called with a Lexical E
 4. Set the outer lexical environment reference of env to E.
 5. Return env.
 
-#### 8.1.2.3 NewObjectEnvironment (O, E)
+#### 8.1.2.3 NewObjectEnvironment(O, E)
 
 省略
 
-#### 8.1.2.4 NewFunctionEnvironment ( F, newTarget )
+#### 8.1.2.4 NewFunctionEnvironment(F, newTarget)
 
-When the abstract operation NewFunctionEnvironment is called with arguments F and newTarget the following steps are performed:
-
-1. Assert: F is an ECMAScript function.
-2. Assert: Type(newTarget) is Undefined or Object.
-3. Let env be a new Lexical Environment.
-4. Let envRec be a new function Environment Record containing no bindings.
-5. Set envRec.[[FunctionObject]] to F.
-6. If F’s [[ThisMode]] internal slot is lexical, set envRec.[[thisBindingStatus]] to "lexical".
-7. Else, Set envRec.[[thisBindingStatus]] to "uninitialized".
-8. Let home be the value of F’s [[HomeObject]] internal slot.
-9. Set envRec.[[HomeObject]] to home.
-10. Set envRec.[[NewTarget]] to newTarget.
-11. Set env’s EnvironmentRecord to be envRec.
-12. Set the outer lexical environment reference of env to the value of F’s [[Environment]] internal slot.
-13. Return env.
+1. Let env be a new Lexical Environment.
+2. Let envRec be a new function Environment Record containing no bindings.
+3. Set envRec.[[FunctionObject]] to F.
+4. If F’s [[ThisMode]] internal slot is `lexical`, set envRec.[[thisBindingStatus]] to "lexical".
+5. Else, Set envRec.[[thisBindingStatus]] to "uninitialized".
+6. Let home be the value of F’s [[HomeObject]] internal slot.
+7. Set envRec.[[HomeObject]] to home.
+8. Set envRec.[[NewTarget]] to newTarget.
+9. Set env’s EnvironmentRecord to be envRec.
+10. Set the outer lexical environment reference of env to the value of F’s [[Environment]] internal slot.
+11. Return env.
 
 #### 8.1.2.5 NewGlobalEnvironment ( G )
 
@@ -746,8 +738,7 @@ When the abstract operation NewFunctionEnvironment is called with arguments F an
 
 ## 8.2 Code Realms
 
-Before it is evaluated,
-all ECMAScript code must be associated with a Realm.
+Before it is evaluated, all ECMAScript code must be associated with a Realm.
 Conceptually, a realm consists of a set of intrinsic objects, an ECMAScript global environment,
 all of the ECMAScript code that is loaded within the scope of that global environment,
 and other associated state and resources.
@@ -755,9 +746,9 @@ and other associated state and resources.
 A Realm is specified as a Record with the fields specified below:
 
 - [[intrinsics]], Record whose field names are intrinsic keys and whose values are objects
-- [[globalThis]]
+- [[globalThis]], The global object for this Realm
 - [[globalEnv]]
-- [[templateMap]]	A List of Record { [[strings]]: List, [[array]]: Object}.
+- [[templateMap]]
 
 ### 8.2.1 CreateRealm ( )
 
@@ -768,7 +759,7 @@ A Realm is specified as a Record with the fields specified below:
 5. Set realmRec.[[templateMap]] to a new empty List.
 6. Return realmRec.
 
-### 8.2.2 CreateIntrinsics (realmRec)
+### 8.2.2 CreateIntrinsics(realmRec)
 
 1. Let intrinsics be a new Record.
 2. Set realmRec.[[intrinsics]] to intrinsics.
@@ -777,20 +768,19 @@ A Realm is specified as a Record with the fields specified below:
 5. ...
 6. Return intrinsics.
 
-### 8.2.3 SetRealmGlobalObject (realmRec, globalObj
+### 8.2.3 SetRealmGlobalObject(realmRec, globalObj)
 
 1. If globalObj is undefined, then
     1. Let intrinsics be realmRec.[[intrinsics]].
     2. Let globalObj be ObjectCreate(intrinsics.[[%ObjectPrototype%]]).
-2. Assert: Type(globalObj) is Object.
-3. Set realmRec.[[globalThis]] to globalObj.
-4. Let newGlobalEnv be NewGlobalEnvironment(globalObj).
-5. Set realmRec.[[globalEnv]] to newGlobalEnv.
-6. Return realmRec.
+2. Set realmRec.[[globalThis]] to globalObj.
+3. Let newGlobalEnv be NewGlobalEnvironment(globalObj).
+4. Set realmRec.[[globalEnv]] to newGlobalEnv.
+5. Return realmRec.
 
 ### 8.2.4 SetDefaultGlobalBindings (realmRec)
 
-1. Let global be realmRec.[[globalThis]].
+1. Let global be realmRec.[[globalThis]]
 2. For each property of the Global Object specified in clause 18, do
     1. Let name be the String value of the property name.
     2. Let desc be the fully populated data property descriptor for the property.
@@ -805,7 +795,8 @@ At any point in time, there is at most one execution context that is actually ex
 This is known as the running execution context.
 A stack is used to track execution contexts.
 The running execution context is always the top element of this stack.
-A new execution context is created whenever control is transferred from the executable code associated with the currently running execution context to executable code that is not associated with that execution context.
+A new execution context is created whenever control is transferred from the executable code associated with the currently running execution context
+to executable code that is not associated with that execution context.
 The newly created execution context is pushed onto the stack and becomes the running execution context.
 
 An execution context contains whatever implementation specific state is necessary to track the execution progress of its associated code.
@@ -824,8 +815,6 @@ Once the running execution context has been suspended a different execution cont
 and commence evaluating its code.
 At some later time a suspended execution context may again become the running execution context
 and continue evaluating its code at the point where it had previously been suspended.
-Transition of the running execution context status among execution contexts usually occurs in stack-like last-in/first-out manner.
-However, some ECMAScript features require non-LIFO transitions of the running execution context.
 
 The value of the Realm component of the running execution context is also called the `current Realm`.
 The value of the Function component of the running execution context is also called the `active function object`.
@@ -833,18 +822,18 @@ The value of the Function component of the running execution context is also cal
 The LexicalEnvironment and VariableEnvironment components of an execution context are always Lexical Environments.
 When an execution context is created its LexicalEnvironment and VariableEnvironment components initially have the same value.
 
-Execution contexts representing the evaluation of generator objects have the additional state components Generator,
-which is The GeneratorObject that this execution context is evaluating.
-
 In most situations only the running execution context is directly manipulated by algorithms within this specification.
 Hence when the terms “LexicalEnvironment”, and “VariableEnvironment” are used without qualification
 they are in reference to those components of the running execution context.
 
-### 8.3.1 ResolveBinding ( name, [env] )
+Execution contexts representing the evaluation of generator objects have the additional state components Generator,
+which is The GeneratorObject that this execution context is evaluating.
+
+### 8.3.1 ResolveBinding(name, [env])
 
 The ResolveBinding abstract operation is used to determine the binding of name passed as a String value.
 The optional argument env can be used to explicitly provide the Lexical Environment that is to be searched for the binding.
-During execution of ECMAScript code, ResolveBinding is performed using the following algorithm:
+`During execution of ECMAScript code`, ResolveBinding is performed using the following algorithm:
 
 1. If env was not passed or if env is undefined, then
 2. Let env be the running execution context’s LexicalEnvironment.
@@ -852,19 +841,19 @@ During execution of ECMAScript code, ResolveBinding is performed using the follo
 4. If the code is contained in strict mode code, let strict be true, else let strict be false.
 5. Return GetIdentifierReference(env, name, strict ).
 
-### 8.3.2 GetThisEnvironment( )
+### 8.3.2 GetThisEnvironment()
 
-finds the Environment Record that currently supplies the binding of the keyword this.
+finds the Environment Record that currently supplies the binding of the keyword `this`.
 
-### 8.3.3 ResolveThisBinding( )
+### 8.3.3 ResolveThisBinding()
 
 determines the binding of the keyword this using the LexicalEnvironment of the running execution context.
 
-### 8.3.4 GetNewTarget ( )
+### 8.3.4 GetNewTarget()
 
 determines the NewTarget value using the LexicalEnvironment of the running execution context.
 
-### 8.3.5 GetGlobalObject ( )
+### 8.3.5 GetGlobalObject()
 
 returns the global object used by the currently running execution context.
 
@@ -877,13 +866,13 @@ A PendingJob is a request for the future execution of a Job.
 A PendingJob is an internal Record whose fields are specified in Table 25.
 Once execution of a Job is initiated, the Job always executes to completion.
 No other Job may be initiated until the currently running Job completes.
-However, the currently running Job or external events may cause the enqueuing of additional PendingJobs that may be initiated sometime after completion of the currently running Job.
+However, the currently running Job or external events may cause the enqueuing of additional PendingJobs.
 
 Table 25 — PendingJob Record Fields
 
 - [[Job]], The name of a Job abstract operation
 - [[Arguments]]
-- [[Realm]]
+- [[Realm]], The Realm for the initial execution context when this Pending Job is initiated.
 - [[HostDefined]], Field reserved for use by host environments that need to associate additional information with a pending Job.
 
 A Job Queue is a FIFO queue of PendingJob records.
@@ -893,9 +882,10 @@ Every ECMAScript implementation has at least the Job Queues defined in Table 26.
 Table 26 — Required Job Queues
 
 - ScriptJobs, Jobs that validate and evaluate ECMAScript Script and Module source text.
-- PromiseJobs
+- PromiseJobs, Jobs that are responses to the settlement of a Promise
 
-A request for the future execution of a Job is made by enqueueing a PendingJob record that includes a Job abstract operation name and any necessary argument values. When there is no running execution context and the execution context stack is empty,
+A request for the future execution of a Job is made by enqueueing a PendingJob record that includes a Job abstract operation name and any necessary argument values.
+When there is no running execution context and the execution context stack is empty,
 the ECMAScript implementation removes the first PendingJob from a Job Queue
 and uses the information contained in it to create an execution context and starts execution of the associated Job abstract operation.
 
@@ -909,7 +899,7 @@ and one of those Jobs will be the first to be executed.
 
 abstract operations used to create and manage Jobs and Job Queues:
 
-- EnqueueJob (queueName, job, arguments)
+- EnqueueJob(queueName, job, arguments)
     1. Let callerContext be the running execution context.
     2. Let callerRealm be callerContext’s Realm.
     3. Let pending be PendingJob{ [[Job]]: job, [[Arguments]]: arguments, [[Realm]]: callerRealm, [[HostDefined]]: undefined }.
@@ -919,7 +909,7 @@ abstract operations used to create and manage Jobs and Job Queues:
     1. If result is an abrupt completion, perform implementation defined unhandled exception processing.
     2. Suspend the running execution context and remove it from the execution context stack.
     3. Assert: The execution context stack is now empty.
-    4. Get next nextPending of PendingJob
+    4. Let nextPending be the next PendingJob.
     5. Let newContext be a new execution context.
     6. Set newContext’s Realm to nextPending.[[Realm]].
     7. Push newContext onto the execution context stack; newContext is now the running execution context.
@@ -928,6 +918,8 @@ abstract operations used to create and manage Jobs and Job Queues:
 ## 8.5 ECMAScript Initialization()
 
 An ECMAScript implementation performs the following steps prior to the execution of any Jobs or the evaluation of any ECMAScript code:
+
+初始化 HostDefinedRealm (并在 realm 上初始化 globalObject) 和 对 source text 进行 EnqueueJob 操作
 
 1. Let realm be CreateRealm().
 2. Let newContext be a new execution context.
@@ -942,7 +934,7 @@ An ECMAScript implementation performs the following steps prior to the execution
         1. Perform EnqueueJob("ScriptJobs", TopLevelModuleEvaluationJob, « sourceText »).
 8. NextJob NormalCompletion(undefined).
 
-### 8.5.1 InitializeHostDefinedRealm ( realm )
+### 8.5.1 InitializeHostDefinedRealm(realm)
 
 The abstract operation InitializeHostDefinedRealm with parameter realm performs the following steps:
 
