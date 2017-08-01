@@ -5,7 +5,7 @@
 - 对面试者有犹豫，可以过可以不过的话，那就不过，要招聘令我心动的好同事
 - 能够系统地描述知识的能力，能否在上层进行归类的能力。比如http 3xx 表示重定向，再看具体的 302 和 304
 
-## 知识链路或者网络
+## 知识链路/网络
 
 - 前后端交互 ==> Ajax ==> JSONP ==> 跨域 ==> 前端安全
 - 从 HTTP/Cookie/Ajax ==> JSONP ==> JSON ==> js object ==>js 继承实现和作用域
@@ -31,12 +31,11 @@
 
 ### Javascript
 
- 1. 原型机制 和 原型式继承，以及 Javascript中的 OOP 如何实现
- 2. 作用域、闭包、this、with
- 3. 浏览器事件：事件三个阶段，事件对象，API，兼容性，事件委托原理
- 4. Javascript 模块化开发
- 5. Javascript 动画原理
- 6. Javascript 模版引擎
+ 1. 原型和继承，以及 Javascript中的 OOP 如何实现
+ 2. 作用域、闭包、this
+ 3. Javascript 模块化开发
+ 4. Javascript 动画原理
+ 5. Javascript 模版引擎
  6. Javascript 类库
  7. MV* 框架的认知和理解
  8. Javascript 异步编程
@@ -54,7 +53,7 @@
 ### DOM(BOM)
 
  1. DOM 常见NODE节点类型
- 2. DOM API（DOM查询、DOM操作、事件、CSS操作、以及其他）
+ 2. DOM API（DOM查询、DOM操作、事件、CSS操作、DOM事件）
  3. Ajax 技术？浏览器提供的以异步方式进行HTTP请求响应的API
  4. 常见的跨域解决方案（JSONP、后端跨域，HTML5跨域、iframe跨域、domain跨域）
  5. Form 表单操作
@@ -68,18 +67,13 @@
  3. 块级 和 行内元素，display 的可选值
  4. CSS 规则的权重计算
  5. CSS3 增强（指令、选择器、属性...）
- 6. 回流和重绘，以及CSS优化
- 7. 预处理语言 和 后处理器
- 8. CSS 框架 和 理念
- 9. 组件化开发 和 Web Components
+ 6. 回流和重绘，以及CSS性能优化
+ 7. 组件化开发 和 Web Components
 
 ### Html
 
- 1. 语义化，常见的语义化元素
- 2. 对HTML中的标签进行总结归类，有何思路
- 3. HTML 、 XHTML 和 XML 之间的关系
- 4. HTML5 提供哪些增强型 API
- 5. HTML5 增强了哪些：多媒体、Form表单、语义化标签、HTML API
+ 1. 对HTML中的标签进行总结归类，有何思路
+ 2. HTML5 增强了哪些：多媒体、Form表单、语义化标签、HTML API
 
 ### 相关领域
 
@@ -88,13 +82,12 @@
  2. HTTP原理和缓存机制
  3. 性能优化
  4. 前端安全，XSS\CSRF\HTTPS
- 4. 自动化构建，grunt\gulp\fis\webpack
+ 4. 自动构建，grunt\gulp\fis\webpack
  5. 文档编写
  6. 单元测试
  7. 后端 OR Nodejs，命令行、Express、Koa
  8. 代码的可维护性
- 9. 系统架构（我现在还不知道有什么内容呢~~）
-
+ 9. 系统设计
 
 ![](http://wd.geilicdn.com/b7982630030332673deb6ae8644a9b44.png)
 ![](http://wd.geilicdn.com/d04d19ba0cd127203d173bfb41573320.png)
