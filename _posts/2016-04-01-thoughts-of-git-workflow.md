@@ -29,6 +29,7 @@ There is no difference in the GitHub flow between a hotfix and a very small feat
 merging first, deploy second.
 
 > Continuous integration: In software engineering, continuous integration (CI) is the practice of merging all developer working copies to a shared mainline several times a day. CI was intended to be used in combination with automated unit tests written through the practices of test-driven development. Later CI introduced build servers, which automatically ran the unit tests periodically or even after every commit and reported the results to the developers.
+> Continuous integration - the practice of frequently integrating one's new or changed code with the existing code repository
 
 gitlab flow 适用于 ci 和 自动化测试，因此可以将 feature 分支划分成很小，并且实现快速的代码修改和自动验证。
 对于一般软件工程而言，ci 和 自动化测试程度并不会高度发达，在测试上较为依赖人工测试，
@@ -37,4 +38,8 @@ gitlab flow 适用于 ci 和 自动化测试，因此可以将 feature 分支划
 
 In GitLab it is common to protect the long-lived branches (e.g. the master branch) so that normal developers can't modify these protected branches. So if you want to merge it into a protected branch you assign it to someone with master authorizations.
 
+## a workflow should consider
 
+- 什么时候要 merge，以及怎么 merge
+- 测试环节放在哪里，特别在人工测试的情况下
+- 尽早集成（这里的集成就是功能组合的意思）是一个大原则
