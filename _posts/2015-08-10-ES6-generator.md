@@ -29,8 +29,8 @@ function* () {
 yield 操作符可以分三个部分
 
 - 右侧表达式的值，同时暂停 `generator function` 的执行
-- 左侧 `yield` 操作后的返回值，同时恢复 `generator function` 的执行
-- 从 expression --> rv 数据转换过程，以其右侧表达式值作为输入，以左侧返回值为输出
+- 左侧应用 `yield [expression]` 后的返回值，同时恢复 `generator function` 的执行
+- 从 expression --> rv 的数据转换过程，以其右侧表达式值作为输入，以左侧返回值为输出
 
 ## generator
 
@@ -42,9 +42,11 @@ yield 操作符可以分三个部分
 - `throw()`
 - `return()`
 
-`generator` 通过 `next()` 来驱动遍历，基于 `yield` 操作符划分了遍历的每个阶段。
-
-当遇到 `yield` 操作符，遍历的一个阶段结束，`next()` 返回对应 `yield` 操作符的右侧表达式的值。
+`generator` 通过调用 `next()` 来实现 `generator` 的遍历，
+最后得到 `generator function` 的返回值或者一个错误。
+其中 `yield` 操作符划分了遍历的每个阶段。
+当函数执行遇到 `yield` 操作符，遍历的一个阶段结束，暂停函数执行，并返回 yield 右侧表达式的值，
+调用 `next()` 恢复函数执行，并以输入值作为对应 `yield` 表达式的值。
 
 由开发者对返回值进行数据处理（可同步，可异步），得到新数据 `handledData`，然后调用 `next(handledData)`，从原有中断位置继续执行遍历，并将处理后的数据作为 `yield` 操作的返回值。如此反复，直到 `generator` 完成遍历，即 `generator function` 函数执行完成。
 
