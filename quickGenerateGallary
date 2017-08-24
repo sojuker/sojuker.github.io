@@ -1,1 +1,1 @@
-ls | xargs -n 1 | awk -F "." '{print "  - url: /photos/大学/"$0"\n    image_path: /photos/大学/"$0"\n    title: "$1}'
+ls | xargs -n 1 | awk -F "." '{print "  - url: /photos/2013/"$0"\n    image_path: /photos/2013/"$0"\n    title: "$1}'

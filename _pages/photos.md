@@ -2,81 +2,75 @@
 permalink: /photos/
 title: 相册
 gallery:
-  - url: /photos/大学/dota.jpg
-    image_path: /photos/大学/dota.jpg
-    title: dota
+  - url: /photos/大学/dota中.jpg
+    image_path: /photos/大学/dota中.jpg
+    title: dota中
   - url: /photos/大学/哈哈.jpg
     image_path: /photos/大学/哈哈.jpg
     title: 哈哈
-  - url: /photos/大学/求职.jpg
-    image_path: /photos/大学/求职.jpg
-    title: 求职
-  - url: /photos/大学/西塘1.jpg
-    image_path: /photos/大学/西塘1.jpg
-    title: 西塘1
-  - url: /photos/大学/西湖1.jpg
-    image_path: /photos/大学/西湖1.jpg
-    title: 西湖1
-  - url: /photos/大学/西塘2.jpg
-    image_path: /photos/大学/西塘2.jpg
-    title: 西塘2
-  - url: /photos/大学/西湖2.jpg
-    image_path: /photos/大学/西湖2.jpg
-    title: 西湖2
-  - url: /photos/大学/西湖3.jpg
-    image_path: /photos/大学/西湖3.jpg
-    title: 西湖3
-  - url: /photos/大学/西湖4.jpg
-    image_path: /photos/大学/西湖4.jpg
-    title: 西湖4
-  - url: /photos/大学/世博会.jpg
-    image_path: /photos/大学/世博会.jpg
-    title: 世博会
-  - url: /photos/大学/中山陵.jpg
-    image_path: /photos/大学/中山陵.jpg
-    title: 中山陵
-  - url: /photos/大学/世博会2.jpg
-    image_path: /photos/大学/世博会2.jpg
-    title: 世博会2
   - url: /photos/大学/寝室春游.jpg
     image_path: /photos/大学/寝室春游.jpg
     title: 寝室春游
   - url: /photos/大学/年纪网站.jpg
     image_path: /photos/大学/年纪网站.jpg
     title: 年纪网站
-  - url: /photos/大学/我不会弹.jpg
-    image_path: /photos/大学/我不会弹.jpg
-    title: 我不会弹
   - url: /photos/大学/我在信网.jpg
     image_path: /photos/大学/我在信网.jpg
     title: 我在信网
-  - url: /photos/大学/大三高干班.jpg
-    image_path: /photos/大学/大三高干班.jpg
-    title: 大三高干班
+  - url: /photos/大学/我在西塘1.jpg
+    image_path: /photos/大学/我在西塘1.jpg
+    title: 我在西塘1
+  - url: /photos/大学/我在西湖1.jpg
+    image_path: /photos/大学/我在西湖1.jpg
+    title: 我在西湖1
+  - url: /photos/大学/我在西塘2.jpg
+    image_path: /photos/大学/我在西塘2.jpg
+    title: 我在西塘2
+  - url: /photos/大学/我在西湖2.jpg
+    image_path: /photos/大学/我在西湖2.jpg
+    title: 我在西湖2
+  - url: /photos/大学/中山陵俯瞰.jpg
+    image_path: /photos/大学/中山陵俯瞰.jpg
+    title: 中山陵俯瞰
   - url: /photos/大学/大雪后的家.jpg
     image_path: /photos/大学/大雪后的家.jpg
     title: 大雪后的家
-  - url: /photos/大学/新农村建设.jpg
-    image_path: /photos/大学/新农村建设.jpg
-    title: 新农村建设
+  - url: /photos/大学/我在世博会.jpg
+    image_path: /photos/大学/我在世博会.jpg
+    title: 我在世博会
   - url: /photos/大学/新房建造中.jpg
     image_path: /photos/大学/新房建造中.jpg
     title: 新房建造中
+  - url: /photos/大学/求职在南大.jpg
+    image_path: /photos/大学/求职在南大.jpg
+    title: 求职在南大
   - url: /photos/大学/第二教学楼.jpg
     image_path: /photos/大学/第二教学楼.jpg
     title: 第二教学楼
+  - url: /photos/大学/我在世博会2.jpg
+    image_path: /photos/大学/我在世博会2.jpg
+    title: 我在世博会2
+  - url: /photos/大学/我就装装样子.jpg
+    image_path: /photos/大学/我就装装样子.jpg
+    title: 我就装装样子
   - url: /photos/大学/被淹的图书馆.jpg
     image_path: /photos/大学/被淹的图书馆.jpg
     title: 被淹的图书馆
   - url: /photos/大学/魔兽微操练习.jpg
     image_path: /photos/大学/魔兽微操练习.jpg
     title: 魔兽微操练习
-  - url: /photos/大学/学生组织高干班.jpg
-    image_path: /photos/大学/学生组织高干班.jpg
-    title: 学生组织高干班
   - url: /photos/大学/鸡鸣寺与玄武湖.jpg
     image_path: /photos/大学/鸡鸣寺与玄武湖.jpg
     title: 鸡鸣寺与玄武湖
+  - url: /photos/大学/家乡的新农村建设.jpg
+    image_path: /photos/大学/家乡的新农村建设.jpg
+    title: 家乡的新农村建设
+  - url: /photos/大学/我在学生组织高干班.jpg
+    image_path: /photos/大学/我在学生组织高干班.jpg
+    title: 我在学生组织高干班
+  - url: /photos/大学/我在学生组织高干班2.jpg
+    image_path: /photos/大学/我在学生组织高干班2.jpg
+    title: 我在学生组织高干班2
 gallery2013:
   - url: /photos/2013/我.jpg
     image_path: /photos/2013/我.jpg
