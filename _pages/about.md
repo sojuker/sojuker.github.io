@@ -7,7 +7,8 @@ permalink: /about/
 毕业后上海待了一年，百度糯米<br>
 ![]({{ site.url }}/assets/about/1.png)
 
-第二年来到杭州，加入天猫超市<br>
+第二年来到杭州，天猫超市<br>
 ![]({{ site.url }}/assets/about/2.jpg)
 
-现在在微店
+第三年、第四年在微店杭州研发中心啦
+![]({{ site.url }}/assets/about/3.jpg)
