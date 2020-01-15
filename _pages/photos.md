@@ -219,7 +219,41 @@ gallery2016:
   - url: /photos/2016/去北京.jpg
     image_path: /photos/2016/去北京.jpg
     title: 去北京
+galleryQingMai:
+  - url: /photos/2013/偷偷.jpg
+    image_path: /photos/2013/偷偷.jpg
+    title: 偷偷
+  - url: /photos/2013/开心.jpg
+    image_path: /photos/2013/开心.jpg
+    title: 开心
+  - url: /photos/2013/开车.jpg
+    image_path: /photos/2013/开车.jpg
+    title: 开车
+  - url: /photos/2013/搞怪.jpg
+    image_path: /photos/2013/搞怪.jpg
+    title: 搞怪
+  - url: /photos/2013/温馨.jpg
+    image_path: /photos/2013/温馨.jpg
+    title: 温馨
+  - url: /photos/2013/霸气.jpg
+    image_path: /photos/2013/霸气.jpg
+    title: 霸气
+  - url: /photos/2013/搞怪1.jpg
+    image_path: /photos/2013/搞怪1.jpg
+    title: 搞怪1
+  - url: /photos/2013/温馨1.jpg
+    image_path: /photos/2013/温馨1.jpg
+    title: 温馨1
+  - url: /photos/2013/搞怪2.jpg
+    image_path: /photos/2013/搞怪2.jpg
+    title: 搞怪2
+  - url: /photos/2013/温馨2.jpg
+    image_path: /photos/2013/温馨2.jpg
+    title: 温馨2
 ---
+
+## 清迈 <sub>{{ page.galleryQingMai.size }} 张图片</sub>
+{% include gallery id="galleryQingMai" class="full"%}
 
 ## 2016 <sub>{{ page.gallery2016.size }} 张图片</sub>
 {% include gallery id="gallery2016" class="full"%}
