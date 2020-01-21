@@ -250,7 +250,42 @@ galleryQingMai:
   - url: /photos/清迈/温馨2.jpg
     image_path: /photos/清迈/温馨2.jpg
     title: 温馨2
+gallery2019:
+  - url: /photos/2019/家装.jpg
+    image_path: /photos/2019/家装.jpg
+    title: 家装
+  - url: /photos/2019/牙套.jpg
+    image_path: /photos/2019/牙套.jpg
+    title: 牙套
+  - url: /photos/2019/一窝猫.jpg
+    image_path: /photos/2019/一窝猫.jpg
+    title: 一窝猫
+  - url: /photos/2019/圣诞节.jpg
+    image_path: /photos/2019/圣诞节.jpg
+    title: 圣诞节
+  - url: /photos/2019/在工作.jpg
+    image_path: /photos/2019/在工作.jpg
+    title: 在工作
+  - url: /photos/2019/公司年会.jpg
+    image_path: /photos/2019/公司年会.jpg
+    title: 公司年会
+  - url: /photos/2019/吃晚饭了.jpg
+    image_path: /photos/2019/吃晚饭了.jpg
+    title: 吃晚饭了
+  - url: /photos/2019/新房入住.jpg
+    image_path: /photos/2019/新房入住.jpg
+    title: 新房入住
+  - url: /photos/2019/清迈夜市.jpg
+    image_path: /photos/2019/清迈夜市.jpg
+    title: 清迈夜市
+  - url: /photos/2019/好整齐的床.jpg
+    image_path: /photos/2019/好整齐的床.jpg
+    title: 好整齐的床
+
 ---
+
+## 2019 <sub>{{ page.gallery2019.size }} 张图片</sub>
+{% include gallery id="gallery2019" class="full"%}
 
 ## 清迈 <sub>{{ page.galleryQingMai.size }} 张图片</sub>
 {% include gallery id="galleryQingMai" class="full"%}
